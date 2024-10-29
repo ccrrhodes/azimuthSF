@@ -207,15 +207,15 @@ RunAzimuth.Seurat <- function(
       verbose = verbose
     )
     
+    # for multi-layered queries, MappingScore() returns a list of layers and associated scores
     metadata = MappingScore(anchors = anchors, ndim = dims) 
     metadata_combined <- do.call(rbind, lapply(seq_along(metadata), function(i) {
       data.frame(
-        score = metadata[[i]],
+        score = metadata[[i]], 
         layer = i  
       )
     }))
     
-    # Calculate mapping score and add to metadata
     query <- AddMetaData(
       object = query,
       metadata = metadata_combined$score,
