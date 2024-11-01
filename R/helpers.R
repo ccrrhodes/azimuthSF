@@ -681,8 +681,13 @@ LoadH5ADobs <- function(path, cell.groups = NULL) {
 #' }
 #'
 LoadReference <- function(path, seconds = 10L) {
-  op <- options(Seurat.object.assay.calcn = FALSE)
-  on.exit(expr = options(op), add = TRUE)
+  # set global options appropriately
+  original_options <- options(
+    Seurat.object.assay.calcn = FALSE,
+    Seurat.object.assay.version = "v3"
+  )
+  # restore all options at exit
+  on.exit(expr = options(original_options), add = TRUE)
   ref.names <- list(
     map = 'ref.Rds',
     ann = 'idx.annoy'
@@ -763,8 +768,6 @@ LoadReference <- function(path, seconds = 10L) {
     i = 1, j = 1, x = 0, dims = c(1, nrow(x = plotref.dr)),
     dimnames = list("placeholder", Cells(x = plotref.dr))
   )
-  op <- options(Seurat.object.assay.version = "v3")
-  on.exit(expr = options(op), add = TRUE)
   plot <- CreateSeuratObject(counts = cm)
   plot[["refUMAP"]] <- plotref.dr
   DefaultAssay(plot[["refUMAP"]]) <- DefaultAssay(plot)
@@ -812,8 +815,13 @@ LoadReference <- function(path, seconds = 10L) {
 #' }
 
 LoadBridgeReference<- function(path, seconds = 10L) {
-  op <- options(Seurat.object.assay.calcn = FALSE)
-  on.exit(expr = options(op), add = TRUE)
+  # set global options appropriately
+  original_options <- options(
+    Seurat.object.assay.calcn = FALSE,
+    Seurat.object.assay.version = "v3"
+  )
+  # restore all options at exit
+  on.exit(expr = options(original_options), add = TRUE)
   ref.names <- list(
     map = 'ext.Rds'
   )
@@ -886,8 +894,6 @@ LoadBridgeReference<- function(path, seconds = 10L) {
     i = 1, j = 1, x = 0, dims = c(1, nrow(x = plotref.dr)),
     dimnames = list("placeholder", Cells(x = plotref.dr))
   )
-  op <- options(Seurat.object.assay.version = "v3")
-  on.exit(expr = options(op), add = TRUE)
   plot <- CreateSeuratObject(counts = cm)
   plot[["refUMAP"]] <- plotref.dr
   plot <- AddMetaData(object = plot, metadata = Misc(object = plotref.dr, slot = "plot.metadata"))
