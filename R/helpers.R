@@ -571,7 +571,8 @@ LoadH5AD <- function(path) {
   colnames <- rownames(metadata)
   rownames(x = counts) <- rownames
   colnames(x = counts) <- colnames
-  options(Seurat.object.assay.calcn = TRUE)
+  op <- options(Seurat.object.assay.calcn = TRUE)
+  on.exit(expr = options(op), add = TRUE)
   object <- CreateSeuratObject(counts = counts)
   if (ncol(x = metadata)) {
     object <- AddMetaData(object = object, metadata = metadata)
