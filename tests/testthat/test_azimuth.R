@@ -1,6 +1,11 @@
 # Tests for azimuth
 set.seed(42)
 
+library(Seurat)
+library(SeuratData)
+library(Azimuth)
+
+
 reference <- LoadData("pbmcref", "azimuth")
 query <- LoadData("ifnb")
 query <- NormalizeData(query, verbose = FALSE)
@@ -8,14 +13,14 @@ multilayer_query <- split(query, f = query$stim)
 
 context("RunAzimuth()")
 
-test_that("RunAzimuth.Seurat handles multi-layer queries", {
+test_that("RunAzimuth handles multi-layer queries", {
   # split query
-  annotated_query <- RunAzimuth.Seurat(
+  annotated_query <- RunAzimuth(
     query = multilayer_query,
     reference = "pbmcref"
   )
   # integrated query
-  integrated_query <- RunAzimuth.Seurat(
+  integrated_query <- RunAzimuth(
     query = query,
     reference = "pbmcref"
   )
