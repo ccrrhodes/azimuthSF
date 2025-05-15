@@ -398,15 +398,22 @@ AzimuthServer <- function(input, output, session) {
   }
   # React to events
   # Load the data and prepare for QC
-  observeEvent(
-    eventExpr = input$file,
+  observeEvent(eventExpr = input$button,
     handlerExpr = {
       ResetEnv()
-      if (nchar(x = input$file$datapath)) {
-        react.env$path <- input$file$datapath
+      if (nchar(x = input$file)) {
+        react.env$path <- input$file
       }
-    }
-  )
+  })
+  # observeEvent(
+  #   eventExpr = input$file,
+  #   handlerExpr = {
+  #     ResetEnv()
+  #     if (nchar(x = input$file$datapath)) {
+  #       react.env$path <- input$file$datapath
+  #     }
+  #   }
+  # )
   observeEvent(
     eventExpr = sapply(X = app.env$demo.inputs, FUN = function(x) input[[x]]),
     handlerExpr = {
