@@ -35,21 +35,21 @@ AzimuthUI <- tagList(
         ),
         accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
       ),
-      # bsPopover(
-      #   id = 'q1',
-      #   title = 'Supported file types',
-      #   content = paste(
-      #     '10x Genomics H5',
-      #     'Seurat object (RDS)',
-      #     'H5AD',
-      #     'H5Seurat',
-      #     'Matrix/matrix/data.frame (RDS)',
-      #     sep = '; '
-      #   ),
-      #   placement = 'right',
-      #   trigger = 'focus',
-      #   options = list(container = 'body')
-      # ),
+      bsPopover(
+        id = 'q1',
+        title = 'Supported file types',
+        content = paste(
+          '10x Genomics H5',
+          'Seurat object (RDS)',
+          'H5AD',
+          'H5Seurat',
+          'Matrix/matrix/data.frame (RDS)',
+          sep = '; '
+        ),
+        placement = 'right',
+        trigger = 'focus',
+        options = list(container = 'body')
+      ),
       textInput("file", "File Path", "Data Summary"),
       actionButton("button", "GO"),
       div(
