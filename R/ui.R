@@ -3,7 +3,7 @@
 #' @importFrom DT DTOutput
 #' @importFrom htmltools div h3 h4 HTML includeCSS p tagList tags
 #' @importFrom shinyjs disabled useShinyjs
-#' @importFrom shiny actionButton checkboxInput column downloadButton fileInput
+#' @importFrom shiny actionButton checkboxInput column downloadButton fileInput textInput
 #' fluidRow htmlOutput icon numericInput plotOutput radioButtons selectizeInput
 #' tableOutput textOutput textAreaInput uiOutput verbatimTextOutput hoverOpts
 #' checkboxGroupInput
@@ -35,8 +35,8 @@ AzimuthUI <- tagList(
       #   ),
       #   accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
       # ),
-      shiny::textInput("file", "File Path", "Data Summary"),
-      shiny::actionButton("button", "Upload"),
+      textInput("file", "File Path", "Data Summary"),
+      actionButton("button", "Upload"),
       bsPopover(
         id = 'q1',
         title = 'Supported file types',
