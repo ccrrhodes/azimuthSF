@@ -50,8 +50,8 @@ AzimuthUI <- tagList(
         trigger = 'focus',
         options = list(container = 'body')
       ),
-      textInput("file", "File Path", "Data Summary"),
-      actionButton("button", "GO"),
+      textInput("file1", "File Path", "Data Summary"),
+      actionButton("button1", "GO"),
       div(
         id = "demobuttons"
       ),
