@@ -21,20 +21,22 @@ AzimuthUI <- tagList(
   dashboardPage(
     dashboardHeader(title = app.title),
     dashboardSidebar(
-      fileInput(
-        inputId = 'file',
-        label = p(
-          'File Upload',
-          bsButton(
-            'q1',
-            label = '',
-            icon = icon(name = 'question'),
-            style = 'info',
-            size = 'extra-small'
-          )
-        ),
-        accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
-      ),
+      # fileInput(
+      #   inputId = 'file',
+      #   label = p(
+      #     'File Upload',
+      #     bsButton(
+      #       'q1',
+      #       label = '',
+      #       icon = icon(name = 'question'),
+      #       style = 'info',
+      #       size = 'extra-small'
+      #     )
+      #   ),
+      #   accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
+      # ),
+      textInput("file", "File Path", "Data Summary"),
+      actionButton("button", "Upload"),
       bsPopover(
         id = 'q1',
         title = 'Supported file types',
