@@ -18,14 +18,6 @@ NULL
 AzimuthUI <- tagList(
   useShinyjs(),
   includeCSS(path = GetCSS()),
-  fluidPage(
-      column(4,
-        numericInput("x", "Value", 5),
-        br(),
-        actionButton("button", "Show")
-      ),
-      column(8, tableOutput("table"))
-    ),
   dashboardPage(
     dashboardHeader(title = app.title),
     dashboardSidebar(
@@ -58,8 +50,11 @@ AzimuthUI <- tagList(
         trigger = 'focus',
         options = list(container = 'body')
       ),
-      textInput("file1", "File Path", "Data Summary"),
-      actionButton("button1", "GO"),
+      sidebarMenu(
+        menuItem("Widgets", tabName = "widgets", icon = icon("th"))
+        textInput("file1", "File Path", "Data Summary"),
+        actionButton("button1", "GO"),
+      )
       div(
         id = "demobuttons"
       ),
