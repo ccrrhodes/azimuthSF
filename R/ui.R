@@ -35,8 +35,6 @@ AzimuthUI <- tagList(
       #   ),
       #   accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
       # ),
-      shiny::textInput("file", "File Path", "Data Summary"),
-      actionButton("button", "Upload"),
       bsPopover(
         id = 'q1',
         title = 'Supported file types',
@@ -52,6 +50,8 @@ AzimuthUI <- tagList(
         trigger = 'focus',
         options = list(container = 'body')
       ),
+      shiny::textInput("file", "File Path", "Data Summary"),
+      actionButton("button", "GO"),
       div(
         id = "demobuttons"
       ),
