@@ -50,7 +50,7 @@ AzimuthUI <- tagList(
         trigger = 'focus',
         options = list(container = 'body')
       ),
-      shiny::textInput("file", "File Path", "Data Summary"),
+      textInput("file", "File Path", "Data Summary"),
       actionButton("button", "GO"),
       div(
         id = "demobuttons"
