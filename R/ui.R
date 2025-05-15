@@ -18,6 +18,14 @@ NULL
 AzimuthUI <- tagList(
   useShinyjs(),
   includeCSS(path = GetCSS()),
+  fluidPage(
+      column(4,
+        numericInput("x", "Value", 5),
+        br(),
+        actionButton("button", "Show")
+      ),
+      column(8, tableOutput("table"))
+    ),
   dashboardPage(
     dashboardHeader(title = app.title),
     dashboardSidebar(
