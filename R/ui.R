@@ -35,7 +35,7 @@ AzimuthUI <- tagList(
       #   ),
       #   accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
       # ),
-      textInput("file", "File Path", "Data Summary"),
+      shiny::textInput("file", "File Path", "Data Summary"),
       actionButton("button", "Upload"),
       bsPopover(
         id = 'q1',
