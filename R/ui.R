@@ -21,35 +21,35 @@ AzimuthUI <- tagList(
   dashboardPage(
     dashboardHeader(title = app.title),
     dashboardSidebar(
-      # fileInput(
-      #   inputId = 'file',
-      #   label = p(
-      #     'File Upload',
-      #     bsButton(
-      #       'q1',
-      #       label = '',
-      #       icon = icon(name = 'question'),
-      #       style = 'info',
-      #       size = 'extra-small'
-      #     )
-      #   ),
-      #   accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
-      # ),
-      bsPopover(
-        id = 'q1',
-        title = 'Supported file types',
-        content = paste(
-          '10x Genomics H5',
-          'Seurat object (RDS)',
-          'H5AD',
-          'H5Seurat',
-          'Matrix/matrix/data.frame (RDS)',
-          sep = '; '
+      fileInput(
+        inputId = 'file',
+        label = p(
+          'File Upload',
+          bsButton(
+            'q1',
+            label = '',
+            icon = icon(name = 'question'),
+            style = 'info',
+            size = 'extra-small'
+          )
         ),
-        placement = 'right',
-        trigger = 'focus',
-        options = list(container = 'body')
+        accept = c('.h5', '.h5ad', '.h5seurat', '.rds')
       ),
+      # bsPopover(
+      #   id = 'q1',
+      #   title = 'Supported file types',
+      #   content = paste(
+      #     '10x Genomics H5',
+      #     'Seurat object (RDS)',
+      #     'H5AD',
+      #     'H5Seurat',
+      #     'Matrix/matrix/data.frame (RDS)',
+      #     sep = '; '
+      #   ),
+      #   placement = 'right',
+      #   trigger = 'focus',
+      #   options = list(container = 'body')
+      # ),
       textInput("file", "File Path", "Data Summary"),
       actionButton("button", "GO"),
       div(
