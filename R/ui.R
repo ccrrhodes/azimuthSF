@@ -53,7 +53,7 @@ AzimuthUI <- tagList(
       sidebarMenu(
         menuItem("Widgets", tabName = "widgets", icon = icon("th"))
       )
-      textInput("file11", "File Path", "Data Summary"),
+      shiny::textInput("file11", "File Path", "Data Summary"),
       actionButton("button11", "GO"),
       div(
         id = "demobuttons"
