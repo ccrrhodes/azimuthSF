@@ -52,9 +52,9 @@ AzimuthUI <- tagList(
       ),
       sidebarMenu(
         menuItem("Widgets", tabName = "widgets", icon = icon("th"))
-        textInput("file1", "File Path", "Data Summary"),
-        actionButton("button1", "GO"),
       )
+      textInput("file1", "File Path", "Data Summary"),
+      actionButton("button1", "GO"),
       div(
         id = "demobuttons"
       ),
